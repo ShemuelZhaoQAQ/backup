@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<block>
+  <name>changeTag</name>
+  <key>SCMA_changeTag</key>
+  <category>[SCMA]</category>
+  <import>import SCMA</import>
+  <make>SCMA.changeTag($multi, $len_tag_key,$debug_flag)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>scale factors</name>
+    <key>multi</key>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Length Tag Key</name>
+    <key>len_tag_key</key>
+    <value>"packet_len"</value>
+    <type>string</type>
+  </param>
+  <param>
+    <name>Debug Mode</name>
+    <key>debug_flag</key>
+    <type>bool</type>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>NO</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>

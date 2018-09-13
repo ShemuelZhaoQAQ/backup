@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<block>
+  <name>encode</name>
+  <key>SCMA_encode</key>
+  <category>[SCMA]</category>
+  <import>import SCMA</import>
+  <make>SCMA.encode($user_codebook, $packet_len, $len_tag_key)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+       <param>
+         <name>User codebook </name>
+         <key>user_codebook</key>
+         <type>hex</type>
+     	<option>
+     		<name>user 1</name>
+     		<key>0x00</key>
+     	</option>
+     	<option>
+     		<name>user 2</name>
+     		<key>0x01</key>
+     	</option>
+     	<option>
+     		<name>user 3</name>
+     		<key>0x02</key>
+     	</option>
+     	<option>
+     		<name>user 4</name>
+     		<key>0x03</key>
+     	</option>
+     	<option>
+     		<name>user 5</name>
+     		<key>0x04</key>
+     	</option>
+     	<option>
+     		<name>user 6</name>
+     		<key>0x05</key>
+     	</option>
+       </param>
+	<param>
+		<name>Packet Length</name>
+		<key>packet_len</key>
+		<type>int</type>
+	</param>
+	<param>
+		<name>Length Tag Key</name>
+		<key>len_tag_key</key>
+		<value>"packet_len"</value>
+		<type>string</type>
+	</param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>
